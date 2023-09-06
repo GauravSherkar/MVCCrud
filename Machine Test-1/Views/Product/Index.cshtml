@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Machine_Test_1.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<hr />
+<p style="color:orangered;">@TempData["InsertMessage"]</p>
+<p style="color:orangered;">@TempData["UpdateMessage"]</p>
+<p style="color:orangered;">@TempData["DeleteMessage"]</p>
+@Html.ActionLink("Create New Product", "Create")
+<table style="text-align:center" >
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProductName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.CategoryName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td> 
+        </tr>
+    }
+</table>
+
+<div>
+    @if (ViewBag.HasPreviousPage)
+    {
+        @Html.ActionLink("Previous", "Index", new { page = ViewBag.PageNumber - 1 })
+    }
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        if (i == ViewBag.PageNumber)
+        {
+            <span>@i</span>
+        }
+        else
+        {
+            @Html.ActionLink(i.ToString(), "Index", new { page = i })
+        }
+    }
+    @if (ViewBag.HasNextPage)
+    {
+        @Html.ActionLink("Next", "Index", new { page = ViewBag.PageNumber + 1 })
+    }
+</div>
+

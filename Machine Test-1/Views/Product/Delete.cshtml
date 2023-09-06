@@ -1,0 +1,26 @@
+﻿@model Machine_Test_1.Models.Product
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure You want to delete this</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.LabelFor(model => model.Category.CategoryName)
+
+        @Html.DisplayFor(model => model.Category.CategoryName)
+
+    </div>
+    <div>
+        @Html.DisplayNameFor(model => model.ProductName)
+
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+    <div>
+        <input type="submit" value="Delete" />
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+}
+

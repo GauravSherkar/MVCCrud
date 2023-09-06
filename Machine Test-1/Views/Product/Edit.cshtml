@@ -1,0 +1,61 @@
+﻿@*@model Machine_Test_1.Models.Product
+    @{
+        ViewBag.Title = "Edit";
+    }
+    <h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(false, "")
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ProductId)
+        <div>
+            @Html.LabelFor(model => model.CategoryId)
+            @Html.DropDownList("CategoryId")
+        </div>
+        <div>
+            @Html.LabelFor(model => model.ProductName)
+            @Html.EditorFor(model => model.ProductName)
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Save" />
+            @Html.ActionLink("Back To List", "Index")
+        </div>
+    }*@
+
+
+
+
+@model Machine_Test_1.Models.Product
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Edit</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ProductId)
+    <div>
+        @Html.ValidationSummary(false, "")
+    </div>
+    <div>
+        @Html.LabelFor(model => model.CategoryId)
+        @Html.DropDownList("CategoryId")
+    </div>
+    <br />
+    <div>
+        @Html.LabelFor(model => model.ProductName)
+        @Html.EditorFor(model => model.ProductName)
+    </div>
+    <div>
+        <br />
+        <input type="submit" value="Save" />
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+
+}
+
+
+

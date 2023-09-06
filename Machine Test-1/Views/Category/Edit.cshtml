@@ -1,0 +1,26 @@
+﻿@model Machine_Test_1.Models.Category
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h2>Edit</h2>
+
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false, "")
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.CategoryId)
+    <div>
+        @Html.LabelFor(model => model.CategoryName)
+        @Html.EditorFor(model => model.CategoryName)
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Save" />
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+}
+
+

@@ -1,0 +1,22 @@
+﻿@model Machine_Test_1.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.LabelFor(model => model.ProductId)
+        <b>@Html.DisplayFor(model => model.ProductId)</b> 
+        @Html.LabelFor(model => model.ProductName)
+    <b>@Html.DisplayFor(model => model.ProductName)</b>
+        @Html.LabelFor(model => model.CategoryId)
+    <b> @Html.DisplayFor(model => model.CategoryId)</b>
+    </div>
+    <div>
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+}

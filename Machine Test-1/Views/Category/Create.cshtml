@@ -1,0 +1,22 @@
+﻿@model Machine_Test_1.Models.Category
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(false, "")
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.LabelFor(model => model.CategoryName)
+        @Html.TextBoxFor(model => model.CategoryName)
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Create" />
+        @Html.ActionLink("Back To List", "Index")
+    </div>
+
+}
