@@ -98,6 +98,7 @@
   <ItemGroup>
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
+    <Content Include="Use Database Script.txt" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
